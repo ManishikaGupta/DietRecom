@@ -1,6 +1,10 @@
 import streamlit as st
+from flask_cors import CORS
+import numpy as np;
 import pandas as pd
-import numpy as np
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS to allow cross-origin requests from React
 from sklearn.cluster import KMeans
 
 def calculate_bmi(weight, height):
