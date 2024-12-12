@@ -46,8 +46,8 @@ def cluster_and_predict(age, veg, weight, height, mode):
 
     suggested_foods = [Food_itemsdata[i] for i, pred in enumerate(y_pred) if pred == 2]
     if not suggested_foods:
-        return "No food items to suggest."
-    return f"Suggested food items: {', '.join(suggested_foods)}"
+        return pd.DataFrame({"Message": ["No food items to suggest."]})
+    return pd.DataFrame({"Suggested Food Items": suggested_foods})
 
 def main():
     st.title("Personalized Diet Recommendation")
@@ -62,10 +62,7 @@ def main():
 
     if st.button("Get Recommendations"):
         recommendations = cluster_and_predict(age, veg, weight, height, mode)
-        st.write(recommendations)
+        st.table(recommendations)
 
 if __name__ == "__main__":
     main()
-
-
-
