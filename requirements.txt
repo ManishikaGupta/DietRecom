@@ -1,3 +1,6 @@
+flask
+flask-cors
 tensorflow
-gradio
 scikit-learn
+numpy
+pandas
